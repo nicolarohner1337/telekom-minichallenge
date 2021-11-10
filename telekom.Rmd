@@ -70,14 +70,12 @@ ggplot(data, aes(tenure)) +
 ggplot(data, aes(MonthlyCharges)) +
   geom_density()
 
-ggplot(data %>% filter(complete_flag), aes(TotalCharges)) +
-  geom_density()+
-  geom_vline(aes(xintercept = median(TotalCharges)),color="red",linetype="dashed")+
-  geom_vline(aes(xintercept = mean(TotalCharges)),color="blue",linetype="dashed")+
-  annotate(y=0,label="Median")
-
-
-
+ggplot(data, aes(TotalCharges)) +
+  geom_density() +
+  geom_vline(aes(xintercept = median(TotalCharges, na.rm=TRUE)),color="red",linetype="dashed") +
+  geom_vline(aes(xintercept = mean(TotalCharges, na.rm=TRUE)),color="blue",linetype="dashed") +
+  geom_text(aes(x=median(TotalCharges, na.rm=TRUE),y=0),label="Median") +
+  geom_text(aes(x=mean(TotalCharges, na.rm=TRUE),y=0),label="Mean")
 
 ```
 
