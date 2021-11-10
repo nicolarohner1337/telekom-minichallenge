@@ -74,8 +74,8 @@ ggplot(data, aes(TotalCharges)) +
   geom_density() +
   geom_vline(aes(xintercept = median(TotalCharges, na.rm=TRUE)),color="red",linetype="dashed") +
   geom_vline(aes(xintercept = mean(TotalCharges, na.rm=TRUE)),color="blue",linetype="dashed") +
-  geom_text(aes(x=median(TotalCharges, na.rm=TRUE),y=0),label="Median") +
-  geom_text(aes(x=mean(TotalCharges, na.rm=TRUE),y=0),label="Mean")
+  geom_text(aes(x=median(TotalCharges, na.rm=TRUE),y=0),label="Median", color = "red", vjust=-.2, angle = 90) +
+  geom_text(aes(x=mean(TotalCharges, na.rm=TRUE),y=0),label="Mean", color = "blue", vjust=-.2, angle = 90, fontface = "bold")
 
 ```
 
